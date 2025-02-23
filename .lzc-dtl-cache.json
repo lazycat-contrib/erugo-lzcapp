@@ -1,0 +1,34 @@
+{
+  "name": "erugo",
+  "package": "cloud.lazycat.app.erugo",
+  "description": "一个WeTransfer的替代方案",
+  "homepage": "https://github.com/DeanWard/erugo",
+  "author": "DeanWard",
+  "app_features": [
+    "background_task"
+  ],
+  "subdomain": "erugo",
+  "version": "0.0.5",
+  "iconPath": "icon.png",
+  "composePath": "docker-compose.yml",
+  "unsupported_platforms": [],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "erugo_9199_9199": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    }
+  },
+  "image_wardy784_erugo_latest": {
+    "originalImage": "wardy784/erugo:latest",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/czyt/wardy784/erugo:f020520e47273240",
+    "timestamp": "2025-02-23T09:07:27.104Z"
+  },
+  "erugo_volume_erugo-storage_/app/storage_action": "emptyDir",
+  "erugo_volume_/app/storage_location": "app_data",
+  "erugo_volume_erugo-private_/app/private_action": "emptyDir",
+  "erugo_volume_/app/private_location": "app_data"
+}

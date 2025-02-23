@@ -1,0 +1,32 @@
+lzc-sdk-version: "0.1"
+name: erugo
+package: cloud.lazycat.app.erugo
+version: 0.0.5
+description: 一个WeTransfer的替代方案
+homepage: https://github.com/DeanWard/erugo
+author: DeanWard
+application:
+  subdomain: erugo
+  background_task: true
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  routes:
+    - /=http://erugo.cloud.lazycat.app.erugo.lzcapp:9199/
+  public_path:
+    - /
+services:
+  erugo:
+    image: registry.lazycat.cloud/czyt/wardy784/erugo:f020520e47273240
+    environment:
+      - ERUGO_BASE_STORAGE_PATH=/app/storage
+      - ERUGO_APP_URL=https://{LAZYCAT_APP_DOMAIN}
+      - ERUGO_BIND_PORT=9199
+      - ERUGO_DATABASE_FILE_PATH=/app/private/erugo.db
+      - ERUGO_MAX_SHARE_SIZE=2G
+      - ERUGO_JWT_SECRET=lazycat-erugo
+      - ERUGO_PRIVATE_DATA_PATH=/app/private
+    binds:
+      - /lzcapp/var/storage:/app/storage
+      - /lzcapp/var/private:/app/private
