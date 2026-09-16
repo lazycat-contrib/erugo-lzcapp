@@ -1,5 +1,5 @@
 package: cloud.lazycat.app.erugo
-version: 0.0.5
+version: 0.2.15
 name: erugo
 description: "一个WeTransfer的替代方案"
 min_os_version: "1.5.0"
