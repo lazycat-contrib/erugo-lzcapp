@@ -1,0 +1,23 @@
+application:
+  subdomain: erugo
+  background_task: true
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://erugo:9199/
+services:
+  erugo:
+    # upstream: wardy784/erugo:0.2.15
+    image: docker.1ms.run/wardy784/erugo:0.2.15
+    environment:
+      - ERUGO_BASE_STORAGE_PATH=/app/storage
+      - ERUGO_APP_URL=https://${LAZYCAT_APP_DOMAIN}
+      - ERUGO_BIND_PORT=9199
+      - ERUGO_DATABASE_FILE_PATH=/app/private/erugo.db
+      - ERUGO_MAX_SHARE_SIZE=2G
+      - ERUGO_JWT_SECRET={{ stable_secret "erugo_jwt_secret" }}
+      - ERUGO_PRIVATE_DATA_PATH=/app/private
+    binds:
+      - /lzcapp/var/storage:/app/storage
+      - /lzcapp/var/private:/app/private

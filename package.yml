@@ -1,0 +1,14 @@
+package: cloud.lazycat.app.erugo
+version: 0.0.5
+name: erugo
+description: "一个WeTransfer的替代方案"
+min_os_version: "1.5.0"
+homepage: https://github.com/DeanWard/erugo
+author: DeanWard
+locales:
+  zh:
+    description: "一个WeTransfer的替代方案"
+    name: erugo
+  en:
+    description: "A WeTransfer alternative"
+    name: erugo
